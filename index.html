@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantity Counter</title>
+    <style>
+        .product-img {
+            height: 200px;
+            display: block;
+            margin: 10px auto;
+
+
+        }
+
+        .product-card {
+            width: 300px;
+            border: 1px solid grey;
+            display: block;
+            margin: 50px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            padding: 0 20px;
+
+        }
+
+        .product-title {
+            font-size: 30px;
+        }
+
+        .product-price {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .btn-add-cart {
+            display: block;
+            margin: 30px auto;
+            font-size: 20px;
+            padding: 10px auto;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .quantity-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .btn-quantity {
+            width: 50px;
+            cursor: pointer;
+        }
+
+        .product-quantity {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="product-card">
+        <img src="shoes.png" class="product-img" />
+        <h1 class="product-title">Ladies Shoe</h1>
+        <p class="product-desc">Shop for Girls Shoes at best price. Pick Shoes for Girls in different patterns
+            with discounts upto 40%</p>
+        <p class="product-price">Price-₹450</p>
+
+        <div class="quantity-container">
+            <img src="minus-icon.jpg" class="btn-quantity" onclick="decreaseQuantity()" />
+
+            <span class="product-quantity" id="quantity-text">1</span>
+
+            <img src="plus-icon.png" class="btn-quantity" onclick="increaseQuantity()" />
+        </div>
+        <button class="btn-add-cart">
+            Add to cart
+        </button>
+    </div>
+    <script>
+        const quantityElement = document.getElementById("quantity-text");
+        function increaseQuantity() {
+            let quantity = parseInt(quantityElement.innerText);
+
+            if (quantity < 10) {
+                quantityElement.innerText = ++quantity;
+            }
+            else {
+                alert("You can't add than 10 items");
+            }
+
+        }
+
+        function decreaseQuantity() {
+            let quantity = parseInt(quantityElement.innerText);
+            if (quantity > 1) {
+                quantityElement.innerText = --quantity;
+            }
+            else {
+                alert("You can't add less than 1 item");
+            }
+        }
+    </script>
+</body>
+
+</html>
